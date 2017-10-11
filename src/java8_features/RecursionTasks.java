@@ -21,7 +21,8 @@ public class RecursionTasks {
 //        System.out.println(recursionTasks.array11(numbers1, 0));
 //        int[] numbers1 = {0, 0};
 //        System.out.println(recursionTasks.array220(numbers1, 0));
-        System.out.println(recursionTasks.allStar(""));
+//        System.out.println(recursionTasks.allStar(""));
+        System.out.println(recursionTasks.pairStar("hello"));
     }
 
     private static int getFactorial(int n) {
@@ -141,8 +142,24 @@ public class RecursionTasks {
     public String allStar(String str) {
         if (str.isEmpty()) return "";
         if (str.length() - 1 == 0) return str;
-
         return str.substring(0, 1) + "*" + allStar(str.substring(1));
+    }
+
+    public String pairStar(String str) {
+        if (str.isEmpty()) return "";
+        if (str.length() - 1 == 0) return str;
+        String firstLetter = str.substring(0, 1);
+        String restOfTheWord = str.substring(1);
+
+        if (firstLetter.equalsIgnoreCase(str.substring(1, 2))) {
+            return firstLetter.concat("*") + pairStar(restOfTheWord);
+        }
+        return firstLetter + pairStar(restOfTheWord);
+    }
+
+    //    http://codingbat.com/prob/p105722
+    public String endX(String str) {
+
     }
 
 }
