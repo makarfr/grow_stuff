@@ -22,7 +22,9 @@ public class RecursionTasks {
 //        int[] numbers1 = {0, 0};
 //        System.out.println(recursionTasks.array220(numbers1, 0));
 //        System.out.println(recursionTasks.allStar(""));
-        System.out.println(recursionTasks.pairStar("hello"));
+//        System.out.println(recursionTasks.pairStar("hello"));
+//        System.out.println(recursionTasks.endX("xxhixx") );
+        System.out.println(recursionTasks.countPairs("ihihhh") );
     }
 
     private static int getFactorial(int n) {
@@ -159,7 +161,29 @@ public class RecursionTasks {
 
     //    http://codingbat.com/prob/p105722
     public String endX(String str) {
+        if (str.isEmpty()) return "";
+        if (str.length() - 1 == 0) return str;
+        String firstLetter = str.substring(0, 1);
+        String restOfTheWord = str.substring(1);
 
+        if (firstLetter.equalsIgnoreCase("x")) {
+            return endX(restOfTheWord) + firstLetter;
+        }
+        return firstLetter + endX(restOfTheWord);
+    }
+
+
+    public int countPairs(String str) {
+        if (str.isEmpty()) return 0;
+        if (str.length() - 2 <= 0) return 0;
+        String firstLetter = str.substring(0, 1);
+        String secondLetter = str.substring(2, 3);
+        String restOfTheWord = str.substring(1);
+
+        if (firstLetter.equalsIgnoreCase(secondLetter)) {
+            return countPairs(restOfTheWord) + 1;
+        }
+        return countPairs(restOfTheWord);
     }
 
 }
