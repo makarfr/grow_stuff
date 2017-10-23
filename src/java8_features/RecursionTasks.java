@@ -24,8 +24,24 @@ public class RecursionTasks {
 //        System.out.println(recursionTasks.allStar(""));
 //        System.out.println(recursionTasks.pairStar("hello"));
 //        System.out.println(recursionTasks.endX("xxhixx") );
-        System.out.println(recursionTasks.countPairs("ihihhh") );
+//        System.out.println(recursionTasks.countPairs("ihihhh") );
+        System.out.println(recursionTasks.countAbc("abaxxaba") );
     }
+
+    private int countAbc(String str) {
+        if (str.isEmpty()) return 0;
+        if (str.length() <= 2){
+            return 0;
+        }
+        String firstLetter = str.substring(0, 3);
+        String restOfTheWord = str.substring(1);
+
+        if (firstLetter.equalsIgnoreCase("abc") || firstLetter.equalsIgnoreCase("aba")) {
+            return countAbc(restOfTheWord) + 1;
+        }
+        return countAbc(restOfTheWord);
+    }
+
 
     private static int getFactorial(int n) {
         if (n == 1) {
