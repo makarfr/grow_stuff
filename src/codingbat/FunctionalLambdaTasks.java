@@ -1,8 +1,6 @@
 package codingbat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FunctionalLambdaTasks {
@@ -17,20 +15,26 @@ public class FunctionalLambdaTasks {
     }
 
     public List<Integer> doubling(List<Integer> nums) {
-        return nums.stream().map(s -> s*2).collect(Collectors.toList());
+        return nums.stream().map(s -> s * 2).collect(Collectors.toList());
     }
 
     public List<String> addStar(List<String> strings) {
-        return strings.stream().map(s -> s+ "*").collect(Collectors.toList());
+        return strings.stream().map(s -> s + "*").collect(Collectors.toList());
     }
+
     public List<Integer> no9(List<Integer> nums) {
-        nums.removeIf(s -> (s%10) == 9);
-        return  nums;
+        nums.removeIf(s -> (s % 10) == 9);
+        return nums;
     }
 
     public List<Integer> noTeen(List<Integer> nums) {
-        nums.removeIf(s -> (s >= 13) &&(s <= 19));
+        nums.removeIf(s -> (s >= 13) && (s <= 19));
         return nums;
+    }
+
+    public List<String> noYY(List<String> strings) {
+        return strings.stream().map(s -> s + "y")
+                .filter(s -> !s.contains("yy")).collect(Collectors.toList());
     }
 
 }
