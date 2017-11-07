@@ -3,7 +3,9 @@ package java8_features;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.IntPredicate;
@@ -17,6 +19,12 @@ public class Puzzlers {
 //        puzzlers.doubleColon();
         functionalInt();
         referenceOnConstructor();
+        Map<Integer, String> map = new HashMap();
+        map.merge(9, "val9", (value, newValue) -> value.concat(newValue));
+        System.out.println(map.get(9));             // val9
+
+        map.merge(9, "concat", (value, newValue) -> value.concat(newValue));
+        System.out.println(map.get(9));             // val9concat
     }
 
 
